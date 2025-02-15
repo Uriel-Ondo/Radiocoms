@@ -1,0 +1,8 @@
+.form-style {
+    max-width: 400px;
+    padding: 30px;
+    margin: 10px auto;
+    background: #FAFAFA;
+    border: 6px solid #305A72;
+    border-radius: 10px;
+}

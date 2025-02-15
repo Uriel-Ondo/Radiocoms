@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Radiocoms EC2LT</title>
+</head>
+<body>
+    <h2 style="text-align: center; color: rgb(67, 138, 219);">CALCULATRICE RF</h2>
+    <form method="POST" action="{{ url_for('index') }}">
+        {{ form.hidden_tag() }}
+        <div>{{ form.frequence.label }} {{ form.frequence(size=20) }}</div>
+        <div>{{ form.distance.label }} {{ form.distance(size=20) }}</div>
+        <div>{{ form.pire.label }} {{ form.pire(size=20) }}</div>
+        <div>{{ form.rxgain.label }} {{ form.rxgain(size=20) }}</div>
+        <div>{{ form.sensi.label }} {{ form.sensi(size=20) }}</div>
+        <div>{{ form.distance1.label }} {{ form.distance1(size=20) }}</div>
+        <div>{{ form.distance2.label }} {{ form.distance2(size=20) }}</div>
+        <div>{{ form.altso.label }} {{ form.altso(size=20) }}</div>
+        <div>{{ form.ho.label }} {{ form.ho(size=20) }}</div>
+        <div>{{ form.altA.label }} {{ form.altA(size=20) }}</div>
+        <div>{{ form.hbatA.label }} {{ form.hbatA(size=20) }}</div>
+        <div>{{ form.altB.label }} {{ form.altB(size=20) }}</div>
+        <div>{{ form.hbatB.label }} {{ form.hbatB(size=20) }}</div>
+        <div>{{ form.submit() }}</div>
+    </form>
+
+    {% if fsl_value is not none %}
+    <h3>Résultats</h3>
+    <p>FSL: {{ fsl_value }} dB</p>
+    <p>Marge libre: {{ marge_libre }} dB</p>
+    <p>Rayon de Fresnel: {{ fresnel_radius }} m</p>
+    <p>Hauteur pylône site A: {{ pylonA_height }} m</p>
+    <p>Hauteur pylône site B: {{ pylonB_height }} m</p>
+    <p>Qualité de la liaison: {{ quality }}</p>
+    {% endif %}
+</body>
+</html>
